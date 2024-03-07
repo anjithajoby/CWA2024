@@ -24,7 +24,7 @@ avg_mood = round(mean([screentime_wellbeing,mental_wellbeing,sleep_wellbeing]),2
 mood_remark = interpret_mood(avg_mood)
 print("My Average mood today is ",mood_remark, " ", avg_mood)
 
-df = pd.read_csv('microbitdata105636.csv')
+df = pd.read_csv('BR1-3_105636.csv')
 print(df)
 # Convert 'Timestamp' column to datetime, is it necessary
 #df['time (seconds)'] = pd.to_datetime(df['time (seconds)'], errors='coerce')
