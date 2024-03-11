@@ -17,10 +17,10 @@ def interpret_mood(avg_mood):
         return "Not really sure, not enough info \n"
 
 #Take them in as integers, as all inputs default to strings
-phone_usage= int(input("On a scale of 1-10, from slowly to quickly, how long does it take for you to fall asleep after using your phone? "))
+phone_anxietywellbeing= int(input("On a scale of 1-10, from slowly to quickly, how long does it take for you to fall asleep after using your phone? "))
 mental_wellbeing = int(input("On a scale of 1-10, from tired to energetic, how much energy do you have? "))
 sleep_wellbeing = int(input("On a scale of 1-10, from no sleep to loads of sleep, how do you feel about how much sleep you get ? "))
-avg_mood = round(mean([phone_usage,mental_wellbeing,sleep_wellbeing]),2)
+avg_mood = round(mean([phone_anxietywellbeing,mental_wellbeing,sleep_wellbeing]),2)
 mood_remark = interpret_mood(avg_mood)
 print("My Average mood today is ",mood_remark, " ", avg_mood)
 
