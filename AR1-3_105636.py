@@ -33,13 +33,10 @@ model.fit(X_train, Y_train)
 
 # Predicting mood scores for the test set
 Y_pred = model.predict(X_test)
-
-
 print("Multiple Linear Regression Model Complete!")
 
 # Checking how well it worked
 mse = mean_squared_error(Y_test, Y_pred)
-
  # Let the user enter their own 3 parameters
 print("")
 print("User will be asked three questions!")
@@ -48,8 +45,7 @@ mental = float(input("Enter how much time you spend to yourself. Can be anything
 sleeptime = float(input("Enter how much sleep you get in a day. Can be anything from 0-24 "))
 
 predicted_mood = predict_mood(bluelight, mental, sleeptime)  # Example values
-print("\n The Predicted Mood Score for the values entered is", predicted_mood)
-
+print("\n The predicted mood score for the values entered is", predicted_mood)
 
 #WHAT-IF Question 1
 # What is will your mood be with low values of all three parameters?
@@ -58,8 +54,8 @@ print("What-if Question 1")
 print("Let's test how much blue light the user receives from their phone ")
 # Low values for all 3 parameters
 
-mood_if_littleSun = predict_mood(bluelight, mental, sleeptime)  # Example values
-print("\n The amount of blue light the user receives is ", mood_if_littleSun)
+mood_if_littlelight = predict_mood(bluelight, mental, sleeptime)  # Example values
+print("\n The amount of blue light the user receives is ", mood_if_littlelight)
 
 # WHAT-IF Question 2
 # What is will your mood be with high values of all three parameters?
@@ -71,8 +67,8 @@ print("Let's test how much time the user spends to theirself")
 
 
 
-mood_if_LoadsaSun = predict_mood(bluelight, mental, sleeptime)  # Example values
-print("\n The amount of time the user spends to theirself is ", mood_if_LoadsaSun)
+mood_if_Loadsalight = predict_mood(bluelight, mental, sleeptime)  # Example values
+print("\n The amount of time the user spends to theirself is ", mood_if_Loadsalight)
 
 # WHAT IF QUESTION 3
 # What variable is more important
