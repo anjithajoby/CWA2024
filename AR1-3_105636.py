@@ -64,9 +64,6 @@ print("What-if Question 2")
 print("Let's test how much time the user spends to theirself")
 # High values for all 3 parameters
 
-
-
-
 mood_if_Loadsalight = predict_mood(bluelight, mental, sleeptime)  # Example values
 print("\n The amount of time the user spends to theirself is ", mood_if_Loadsalight)
 
@@ -83,7 +80,7 @@ print("Let's get a baseline from fairly average values...")
 
 
 baseline_mood = predict_mood(bluelight, mental, sleeptime)  # Example values
-print("\n The baseline Score mood is", baseline_mood)
+print("\n The score mood is", round(baseline_mood))
 print("")
 
 
