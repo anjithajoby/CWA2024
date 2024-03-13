@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 def predict_mood(bluelight_min, bluelight_max, bluelight_mean):
     df = pd.DataFrame([[bluelight_min, bluelight_max, bluelight_mean]],
-                      columns=['bluelight_min', 'bluelight_max', 'bluelight_mean'])
+                      columns=['light_min', 'light_max', 'light_mean'])
     return model.predict(df)[0]
 # Training the model
 
@@ -19,8 +19,8 @@ def predict_mood(bluelight_min, bluelight_max, bluelight_mean):
 data = pd.read_csv('AR1-3_105636.csv')
 
 # Define your independent variables (features) and dependent variable (target)
-X = data[['bluelight_min', 'bluelight_max', 'bluelight_mean']]
-Y = data['avg_bluelight']
+X = data[['light_min', 'light_max', 'light_mean']]
+Y = data['avg_mood']
 
 # Splitting the dataset into training and test sets
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
@@ -53,7 +53,7 @@ print("-----------------------------------------------------------")
 print("What-if Question 1")
 print("Let's test how much blue light the user receives from their phone ")
 # Low values for all 3 parameters
-bluelight = predict_mood(phoneanxiety_wellbeing, mental_wellbeing, sleep_wellbeing)  # Example values
+phonelight = predict_mood(phoneanxiety_wellbeing, mental_wellbeing, sleep_wellbeing)  # Example values
 print("\n The amount of blue light the user receives is ", phonelight)
 def interpret_mood(bluelight):
     if bluelight >= 9:
@@ -69,12 +69,12 @@ print("-----------------------------------------------------------")
 print("What-if Question 2")
 print("Let's test how much time the user spends to theirself")
 # High values for all 3 parameters
-mental = predict_mood(phoneanxiety_wellbeing, mental_wellbeing, sleep_wellbeing)  # Example values
+mentalhealth = predict_mood(phoneanxiety_wellbeing, mental_wellbeing, sleep_wellbeing)  # Example values
 print("\n The amount of time the user spends to theirself is ", mentalhealth)
 def interpret_mood(mental):
-    if bluelight >= 9:
+    if mentalhealth >= 9:
         return "This is brilliant. Spending time with yourself can improve your mental health."
-    elif 5 <= bluelight < 9:
+    elif 5 <= mentalhealth < 9:
         return "Okay you can do better. Engage in activities that bring you relaxation. It's important to give yourself a break."
     else:
         return "No this is not good. Try and just spend a few minutes to yourself. You will see huge improvements in your mental health."
@@ -85,15 +85,15 @@ print("-----------------------------------------------------------")
 print("What-if Question 3")
 print("Let's test how much sleep the user gets in a day")
 sleep = predict_mood(phoneanxiety_wellbeing, mental_wellbeing, sleep_wellbeing)  # Example values
-print("\n The score mood is", round(sleeptime))
+print("\n The score mood is", round(sleep))
 def interpret_mood(mental):
-    if bluelight >= 9:
+    if sleep >= 9:
         return "Keep this up. Sleeping is good for you, and you won't have eyebags if you sleep this long."
-    elif 5 <= bluelight < 9:
+    elif 5 <= sleep < 9:
         return "Okay this isn't bad. Make sure you go to bed on time and don't be on your phone before you sleep"
     else:
         return "Please tell me your joking. If it's because of the phone you don't sleep well, then leave your phone in another room before you get ready to go to sleep"
-sleeptime = interpret_mood(sleep_wellbeing)
+sleep = interpret_mood(sleep_wellbeing)
 
 
 
@@ -106,14 +106,14 @@ print("")
 
 # Data: names of the variables and their values
 variable_names = ['BlueLight', 'Mental', 'SleepTime']
-values = [bluelight, mental, sleeptime]
+values = [phoneanxiety_wellbeing, mental_wellbeing, sleep_wellbeing]
 
 # Creating the bar chart
 plt.bar(variable_names, values)
 
 # Adding labels and title
-plt.xlabel('Amount of blue light')
-plt.ylabel('Users Moods')
+plt.xlabel('Wellbeing')
+plt.ylabel('Predictions')
 plt.title('Bar Chart of What-if Q1, Q2, Q3 Outcomes')
 
 # Show the plot
